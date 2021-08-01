@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 main() {
-  runApp(PerguntaApp());
+  //runApp(PerguntaApp());
+  runApp(MyStatefulWidget());
 }
 
 class PerguntaApp extends StatelessWidget {
@@ -31,5 +32,50 @@ class PerguntaApp extends StatelessWidget {
                 ElevatedButton(onPressed: responder, child: Text('Resposta 03'))
               ],
             )));
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+String englishGreeting = "Hello Flutter !";
+String spanishGreeting = "Hola Flutter !";
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String displayText = englishGreeting;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Investia"),
+          leading: Icon(Icons.home),
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () {
+                  setState(() {
+                    displayText = displayText == englishGreeting
+                        ? spanishGreeting
+                        : englishGreeting;
+                  });
+                })
+          ],
+        ),
+        body: Center(
+            child: Column(
+          children: [
+            Text(
+              displayText,
+              style: TextStyle(fontSize: 24),
+            ),
+          ],
+        )),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
