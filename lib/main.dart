@@ -3,6 +3,7 @@ import 'package:flutter_1st_app/questionario.dart';
 import 'package:flutter_1st_app/resultado.dart';
 
 main() {
+  //runApp(PerguntaApp());
   runApp(PerguntaApp());
 }
 
@@ -74,14 +75,3 @@ class _PerguntaAppState extends State<PerguntaApp> {
                 : Resultado(_notaTotal, _reiniciarQuestionario)));
   }
 }
-
-
-/*
-
-Questao(perguntas[_perguntaSelecionada]['texto'].toString()),
-
-for (String textoResp in perguntas[_perguntaSelecionada].cast()['respostas']) {
-      respostas.add(Resposta(textoResp, _responder));
-    }
-
-*/
